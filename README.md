@@ -1,3 +1,3 @@
-**Visualizations of math professor research interests and collaboratinos at the University of Illinois at Urbana-Champaign.**  
+**UIUC Math Visualizations**
 
-*The bipartite diagram is currently based only on uploaded arxiv papers for each professor.*
+Bipartite diagram and network showing math professor research interests and collaborations at the University of Illinois at Urbana-Champaign. Currently the visuals are based only on uploaded arxiv papers for each professor. We provide data and the scripts for scraping the data. 
