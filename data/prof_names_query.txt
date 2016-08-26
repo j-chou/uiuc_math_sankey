@@ -41,6 +41,7 @@ Kostochka_Alexandr
 Laugesen_R
 Leininger_C
 Lerman_Eugene
+Li_Shu+CAT:math*+
 Li_Xiaochun
 Luu_Martin
 McCarthy_Randy

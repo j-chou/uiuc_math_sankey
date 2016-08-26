@@ -1,6 +1,4 @@
-name,category,authors
-,,count
-,,
+prof_name,category,authors
 "Ahlgren, Scott",Combinatorics,1
 "Ahlgren, Scott",Number Theory,9
 "Albin, Pierre",Algebraic Topology,1
@@ -124,87 +122,87 @@ name,category,authors
 "Lerman, Eugene M.",Dynamical Systems,5
 "Lerman, Eugene M.",Non-Math,8
 "Lerman, Eugene M.",Symplectic Geometry,15
-"Li, Shu",Analysis of PDEs,1
-"Li, Shu",Classical Analysis and ODEs,14
-"Li, Shu",Non-Math,1
-"Li, Xiaochun",Non-Math,4
-"Luu, Martin",Algebraic Topology,5
-"Luu, Martin",K-Theory and Homology,1
-"McCarthy, Randy",Metric Geometry,1
-"McCarthy, Randy",Operator Algebras,1
-"Muncaster, Robert",Algebraic Geometry,14
-"Muncaster, Robert",Non-Math,1
-"Muncaster, Robert",Representation Theory,1
-"Muncaster, Robert",Rings and Algebras,1
-"Nevins, Thomas",Algebraic Geometry,9
-"Nevins, Thomas",Differential Geometry,1
-"Nevins, Thomas",Geometric Topology,7
-"Nevins, Thomas",K-Theory and Homology,2
-"Nevins, Thomas",Metric Geometry,1
-"Nevins, Thomas",Number Theory,12
-"Nevins, Thomas",Operator Algebras,16
-"Palmore, Julian",Algebraic Topology,1
-"Palmore, Julian",Symplectic Geometry,3
-"Pascaleff, James",Non-Math,4
-"Rapti, Zoi",Algebraic Topology,21
-"Rapti, Zoi",Category Theory,1
-"Rezk, Charles",Algebraic Geometry,7
-"Rezk, Charles",Combinatorics,2
-"Rezk, Charles",Number Theory,8
-"Reznick, Bruce",Functional Analysis,1
-"Reznick, Bruce",Operator Algebras,7
-"Ruan, Zhong-Jin",Algebraic Geometry,17
-"Ruan, Zhong-Jin",Algebraic Topology,1
-"Ruan, Zhong-Jin",Combinatorics,2
-"Ruan, Zhong-Jin",Commutative Algebra,7
-"Ruan, Zhong-Jin",Non-Math,1
-"Ruan, Zhong-Jin",Numerical Analysis,2
-"Schenck, Hal",Combinatorics,4
-"Schenck, Hal",Dynamical Systems,1
-"Schenck, Hal",Functional Analysis,2
-"Schenck, Hal",Logic,4
-"Schenck, Hal",Representation Theory,1
+"Li, Xiaochun",Analysis of PDEs,1
+"Li, Xiaochun",Classical Analysis and ODEs,14
+"Li, Xiaochun",Non-Math,1
+"Luu, Martin",Non-Math,4
+"McCarthy, Randy",Algebraic Topology,5
+"McCarthy, Randy",K-Theory and Homology,1
+"Mineyev, Igor",Metric Geometry,1
+"Mineyev, Igor",Operator Algebras,1
+"Nevins, Thomas",Algebraic Geometry,14
+"Nevins, Thomas",Non-Math,1
+"Nevins, Thomas",Representation Theory,1
+"Nevins, Thomas",Rings and Algebras,1
+"Nikolaev, Igor G.",Algebraic Geometry,9
+"Nikolaev, Igor G.",Differential Geometry,1
+"Nikolaev, Igor G.",Geometric Topology,7
+"Nikolaev, Igor G.",K-Theory and Homology,2
+"Nikolaev, Igor G.",Metric Geometry,1
+"Nikolaev, Igor G.",Number Theory,12
+"Nikolaev, Igor G.",Operator Algebras,16
+"Pascaleff, James",Algebraic Topology,1
+"Pascaleff, James",Symplectic Geometry,3
+"Rapti, Zoi",Non-Math,4
+"Rezk, Charles",Algebraic Topology,21
+"Rezk, Charles",Category Theory,1
+"Reznick, Bruce",Algebraic Geometry,7
+"Reznick, Bruce",Combinatorics,2
+"Reznick, Bruce",Number Theory,8
+"Ruan, Zhong-Jin",Functional Analysis,1
+"Ruan, Zhong-Jin",Operator Algebras,7
+"Schenck, Hal",Algebraic Geometry,17
+"Schenck, Hal",Algebraic Topology,1
+"Schenck, Hal",Combinatorics,2
+"Schenck, Hal",Commutative Algebra,7
+"Schenck, Hal",Non-Math,1
+"Schenck, Hal",Numerical Analysis,2
+"Solecki, Slawomir",Combinatorics,4
 "Solecki, Slawomir",Dynamical Systems,1
-"Solecki, Slawomir",Numerical Analysis,1
-"Solecki, Slawomir",Probability,42
-"Song, Renming",Non-Math,6
-"Song, Renming",Probability,2
-"Sowers, Richard B.",Algebraic Topology,8
-"Sowers, Richard B.",History and Overview,1
-"Sowers, Richard B.",Number Theory,1
-"Stojanoska, Vesna",Differential Geometry,8
-"Stojanoska, Vesna",Non-Math,4
-"Stojanoska, Vesna",Symplectic Geometry,16
-"Tolman, Susan",Dynamical Systems,1
-"Tolman, Susan",Logic,2
-"Tserunyan, Anush",Analysis of PDEs,1
-"Tserunyan, Anush",Complex Variables,10
+"Solecki, Slawomir",Functional Analysis,2
+"Solecki, Slawomir",Logic,4
+"Solecki, Slawomir",Representation Theory,1
+"Song, Renming",Dynamical Systems,1
+"Song, Renming",Numerical Analysis,1
+"Song, Renming",Probability,42
+"Sowers, Richard B.",Non-Math,6
+"Sowers, Richard B.",Probability,2
+"Stojanoska, Vesna",Algebraic Topology,8
+"Stojanoska, Vesna",History and Overview,1
+"Stojanoska, Vesna",Number Theory,1
+"Tolman, Susan",Differential Geometry,8
+"Tolman, Susan",Non-Math,4
+"Tolman, Susan",Symplectic Geometry,16
 "Tserunyan, Anush",Dynamical Systems,1
-"Tserunyan, Anush",Metric Geometry,1
-"Tserunyan, Anush",Non-Math,5
-"Tserunyan, Anush",Symplectic Geometry,1
-"Tumanov, Alexander",Analysis of PDEs,3
-"Tumanov, Alexander",Complex Variables,1
-"Tumanov, Alexander",Differential Geometry,1
+"Tserunyan, Anush",Logic,2
+"Tumanov, Alexander",Analysis of PDEs,1
+"Tumanov, Alexander",Complex Variables,10
 "Tumanov, Alexander",Dynamical Systems,1
-"Tumanov, Alexander",Functional Analysis,1
-"Tumanov, Alexander",Geometric Topology,1
-"Tumanov, Alexander",Metric Geometry,6
-"Tyson, Jeremy",Analysis of PDEs,13
-"Tyson, Jeremy",Non-Math,3
-"Tzirakis, Nikolaos",Classical Analysis and ODEs,1
-"Tzirakis, Nikolaos",Complex Variables,1
-"Tzirakis, Nikolaos",Dynamical Systems,1
-"Tzirakis, Nikolaos",Metric Geometry,3
-"Wu, Jang-Mei",Algebraic Geometry,8
-"Wu, Jang-Mei",Combinatorics,35
-"Wu, Jang-Mei",History and Overview,1
-"Wu, Jang-Mei",Representation Theory,1
-"Yong, Alexander",Classical Analysis and ODEs,2
-"Yong, Alexander",Complex Variables,1
-"Yong, Alexander",Dynamical Systems,1
-"Yong, Alexander",Non-Math,1
-"Yong, Alexander",Number Theory,39
-"Zaharescu, Alexandru",Classical Analysis and ODEs,1
-"Zaharescu, Alexandru",Dynamical Systems,3
-"Zaharescu, Alexandru",Non-Math,7
+"Tumanov, Alexander",Metric Geometry,1
+"Tumanov, Alexander",Non-Math,5
+"Tumanov, Alexander",Symplectic Geometry,1
+"Tyson, Jeremy",Analysis of PDEs,3
+"Tyson, Jeremy",Complex Variables,1
+"Tyson, Jeremy",Differential Geometry,1
+"Tyson, Jeremy",Dynamical Systems,1
+"Tyson, Jeremy",Functional Analysis,1
+"Tyson, Jeremy",Geometric Topology,1
+"Tyson, Jeremy",Metric Geometry,6
+"Tzirakis, Nikolaos",Analysis of PDEs,13
+"Tzirakis, Nikolaos",Non-Math,3
+"Wu, Jang-Mei",Classical Analysis and ODEs,1
+"Wu, Jang-Mei",Complex Variables,1
+"Wu, Jang-Mei",Dynamical Systems,1
+"Wu, Jang-Mei",Metric Geometry,3
+"Yong, Alexander",Algebraic Geometry,8
+"Yong, Alexander",Combinatorics,35
+"Yong, Alexander",History and Overview,1
+"Yong, Alexander",Representation Theory,1
+"Zaharescu, Alexandru",Classical Analysis and ODEs,2
+"Zaharescu, Alexandru",Complex Variables,1
+"Zaharescu, Alexandru",Dynamical Systems,1
+"Zaharescu, Alexandru",Non-Math,1
+"Zaharescu, Alexandru",Number Theory,39
+"Zharnitsky, Vadim",Classical Analysis and ODEs,1
+"Zharnitsky, Vadim",Dynamical Systems,3
+"Zharnitsky, Vadim",Non-Math,7

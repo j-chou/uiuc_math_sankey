@@ -8,7 +8,7 @@ import os
 ## Get UIUC math prof names from UIUC website
 link_path = 'http://www.math.illinois.edu/People/faculty.html'
 link = urllib.request.urlopen(link_path).read()
-soup = BeautifulSoup(link)
+soup = BeautifulSoup(link,'lxml')
 
 prof_names = []
 for element in soup.findAll('table')[0].findAll('a'):
@@ -23,8 +23,9 @@ for element in soup.findAll('table')[0].findAll('a'):
 # file_name = open('/Users/jedchou/PycharmProjects/UIUC_math_network/prof_names_query.txt','w')
 # for item in prof_names_query_format:
 #     file_name.write('\'%s\',\n' % item)
+
 prof_names_query_format = []
-with open('/Users/jedchou/PycharmProjects/UIUC_math_network/prof_names_query.txt','r') as file:
+with open('/Users/jedchou/PycharmProjects/uiuc_math_viz/data/prof_names_query.txt','r') as file:
     for line in file:
         prof_names_query_format.append(line.replace('\n',''))
 
@@ -34,48 +35,49 @@ values = prof_names
 prof_names_dict = dict(zip(keys,values))
 
 ## Dataframe storing prof names, coauthors, and
-df_header = ['name','authors','category']
-df = pd.DataFrame([],df_header)
+# df_header = ['name','authors','category']
+# df = pd.DataFrame([],df_header)
+#
+# ## For each UIUC math prof, search for all arxiv papers and
+# ## get paper category, co-authors
+# for prof in prof_names_query_format:
+#     url = 'http://export.arxiv.org/api/query?search_query=au:'+prof+'&start=0&max_results=200'
+#     data = urllib.request.urlopen(url).read()
+#     soup = BeautifulSoup(data,'lxml')
+#
+#     num_papers = len(soup.findAll('entry'))
+#
+#     author_list = ['']*num_papers
+#     category_list = ['']*num_papers
+#     index = 0
+#     for entry in soup.findAll('entry'):
+#
+#         # title = entry.findAll()
+#
+#         ## Get all authors on paper
+#         authors = [name.get_text() for name in entry.findAll('name')]
+#         authors = ';'.join(authors)
+#
+#         ## Get paper category
+#         category = entry.findAll('arxiv:primary_category')[0]['term']
+#
+#         author_list[index] = authors
+#         category_list[index] = category
+#
+#         index += 1
+#
+#     ## Append papers for this prof to df
+#     df = df.append(pd.DataFrame({'name':[prof]*num_papers,
+#                                  'authors':author_list,
+#                                  'category':category_list}))
 
-## For each UIUC math prof, search for all arxiv papers and
-## get paper category, co-authors
-for prof in prof_names_query_format:
-    url = 'http://export.arxiv.org/api/query?search_query=au:'+prof+'&start=0&max_results=200'
-    data = urllib.request.urlopen(url).read()
-    soup = BeautifulSoup(data,'lxml')
-
-    num_papers = len(soup.findAll('entry'))
-
-    author_list = ['']*num_papers
-    category_list = ['']*num_papers
-    index = 0
-    for entry in soup.findAll('entry'):
-
-        # title = entry.findAll()
-
-        ## Get all authors on paper
-        authors = [name.get_text() for name in entry.findAll('name')]
-        authors = ';'.join(authors)
-
-        ## Get paper category
-        category = entry.findAll('arxiv:primary_category')[0]['term']
-
-        author_list[index] = authors
-        category_list[index] = category
-
-        index += 1
-
-    ## Append papers for this prof to df
-    df = df.append(pd.DataFrame({'name':[prof]*num_papers,
-                                 'authors':author_list,
-                                 'category':category_list}))
+file_name = open('/Users/jedchou/PycharmProjects/uiuc_math_viz/data/test_UIUC_math_network.csv','r')
+df = pd.DataFrame.from_csv(file_name,index_col=False)
 
 ## Get dictionary of arxiv math categories
 link_path = 'https://arxiv.org/archive/math'
 link = urllib.request.urlopen(link_path).read()
-soup = BeautifulSoup(link)
-
-# pprint(soup)
+soup = BeautifulSoup(link,'lxml')
 
 cat_dict = {}
 for element in soup.findAll('li'):
@@ -87,28 +89,47 @@ for element in soup.findAll('li'):
             cat_dict[category[0]] = category[1]
 
 ## Convert abbreviated category names to full names
-full_cat_names = [cat_dict[str(x)] if str(x) in cat_dict else 'Non-Math' for x in df.category]
-df.category = full_cat_names
+# full_cat_names = [cat_dict[str(x)] if str(x) in cat_dict else 'Non-Math' for x in df.category]
+# for x in df.category:
+#     print(x)
+# df.category = full_cat_names
 
-## CHECK WHY JAMES PASCALEFF CLASSIFIED AS NON-MATH!!!
-## GET BETTER D3 COLORSCHEME
-
-df_table = pd.DataFrame(df.groupby(['name','category']).agg(['count']))
+df_table = pd.DataFrame(df.groupby(['name', 'category']).agg(['count']))
 df_table = df_table.reset_index()
+df_table.columns = ['prof_name','category','authors']
 
 ## Convert abbreviated prof names to full names
-df_table.name = [prof_names_dict[x] if x in prof_names_dict else x for x in df_table.name]
+full_prof_names = [prof_names_dict[x] if x in prof_names_dict else x for x in df_table.prof_name]
+df_table.prof_name = full_prof_names
+
+## Check that abbrev names are converted correctly
+# for index,row in df_table.iterrows():
+#     print(index,row['prof_name'],row['authors'],prof_names_dict[row['prof_name']])
 
 num_profs = len(prof_names)
 prof_list = [0]*df_table.shape[0]
 
 for index,row in df_table.iterrows():
-    prof_list[index] = [str(row['name'].item()), str(row['category'].item()), int(row['authors'])]
+    prof_list[index] = [str(row['prof_name']), str(row['category']), int(row['authors'])]
 
-file_name = open('/Users/jedchou/PycharmProjects/UIUC_math_network/test_prof_list.txt','w')
+file_name = open('/Users/jedchou/PycharmProjects/uiuc_math_viz/data/test_prof_list.txt','w')
 for item in prof_list:
     file_name.write('%s,\n' % item)
 
-os.chdir('/Users/jedchou/PycharmProjects/UIUC_math_network')
+os.chdir('/Users/jedchou/PycharmProjects/uiuc_math_viz/data')
 df.to_csv('test_UIUC_math_network.csv',sep=',',index=False)
 df_table.to_csv('prof_table_by_group_count.csv',sep=',',index=False)
+
+colors_list = ["#546cc8", "#18c61a", "#e21801", "#c0a87d", "#b407fa", "#d71586", "#20bbd3", "#ed990a", "#078345", "#e094bf", "#a7b323", "#c04b4a", "#f47dfa", "#5d5cf9", "#6a737d", "#8c6e05", "#4cb2ff", "#7db799", "#f19461", "#9f56a6", "#6bbe54", "#9b6363", "#c51ac9", "#bb5301", "#e30246", "#5d7c1c", "#087f7c", "#68774d", "#aca3ea", "#b64e78", "#0579ac", "#c0a4a9", "#f98b95", "#7f6998", "#17c28a", "#9b4dd0", "#9ab46d", "#9e653a", "#8bafcc", "#78be07", "#cda733", "#1e840b", "#d52c65", "#fa82ce", "#c234a7", "#286aeb", "#ca94f9", "#df9b86", "#9542f3", "#d23928", "#05bfb6", "#04c553", "#d4a260", "#6fbc7c", "#7f705c", "#7c7330", "#a8ad9a", "#138161", "#b0b04e", "#9c5e85", "#7eb5b7", "#297c91", "#b94693", "#3cb7e9", "#fc9038", "#4d7e3e", "#a66119", "#be4f2d", "#4c72b3", "#baa3c6", "#835dc8", "#fd84b2", "#dd99a2", "#547a68", "#e49c3f", "#5f7298", "#d396dc", "#866a7d", "#ff8a78", "#92b84c", "#ab5c49", "#b9ac66", "#44c26c", "#87adea", "#7b65b3", "#e788eb", "#b15564", "#b524e5", "#a2b184", "#4cbe99", "#ab4ab4", "#5dc137", "#ca377f", "#aa3dd7", "#d4334b", "#c7425e", "#94684f", "#e01a31", "#428025", "#83ba65", "#8fb92e", "#8255e4", "#a6acb0", "#cf3f08", "#7a7513", "#8f6c29", "#61baaf", "#677937", "#d504a1", "#4d7d54", "#bcad15", "#7e7147", "#c1a693", "#ed90aa", "#90609f", "#ab548c", "#d6a401"]
+color_map = {}
+index = 0
+for name in df_table.prof_name.unique():
+    color_map[name] = colors_list[index]
+    index += 1
+
+file_name = open('/Users/jedchou/PycharmProjects/uiuc_math_viz/data/color_map.txt','w')
+file_name.write('var color = {\n')
+for key in color_map:
+    # print('\'{0}\':\'{1}\',\n'.format(key, color_map[key]))
+    file_name.write('\'{0}\':\'{1}\',\n'.format(key, color_map[key]))
+file_name.write('};')
