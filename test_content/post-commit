@@ -1,0 +1,3 @@
+#!/usr/bin/env
+
+pelican content -o output -s pelicanconf.py && ghp-import output && git push https://github.com/j-chou/j-chou.github.io.git gh-pages:master
