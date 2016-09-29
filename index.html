@@ -360,20 +360,6 @@ function mouseout(d){
 d3.select(self.frameElement).style("height", "100px");
 </script>
 
-<p>A friend and I were discussing potential data science projects and we talked about how a visualization
-showing the research areas of each professor could be useful to incoming math PhD students.
-This is the initial result of that discussion, a bipartite diagram showing math professor publication areas
-at the University of Illinois at Urbana-Champaign.</p>
-
-<p>I scrapped a list of UIUC math professors from the math department website and then used the arXiv API
-to query all the papers for each professor. Every math paper on the arXiv must be assigned a category
-like Algebraic Geometry or Group Theory, and this lets us see what areas each professor is publishing in.
-The left-hand-side lists all UIUC math professors listed on the math department website.
-The right-hand-side lists all the subcategories for math listed on the arXiv.  </p>
-
-<p>Currently the visuals are based only on arxiv papers each professor has uploaded, not their full lists of papers.
-Still, I think this a good representation of math research areas at UIUC. The data and python, d3 scripts
-for scraping and viewing the data are at github.com/j-chou.</p>
 
 </body>
 </html>
